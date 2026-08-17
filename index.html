@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusión 360 | Un Sistema Integral Para Esculpir Tu Cuerpo</title>
+    
+    <!-- Cargando Tailwind CSS y Fuentes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fucsia: {
+                            400: '#e84393', // Hover
+                            500: '#d63080', // Principal
+                            600: '#ad1f62', // Sombras
+                        },
+                        dark: {
+                            900: '#050505', // Fondo negro profundo
+                            800: '#111111', // Secciones alternas
+                            700: '#1f1f1f', // Tarjetas y paneles
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Patrón sutil para fondos oscuros */
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d63080' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        /* Efecto de texto con gradiente */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #ffffff, #e84393);
+        }
+        
+        /* Efecto de cristal para paneles y tarjetas */
+        .glass-panel {
+            background: rgba(31, 31, 31, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Animación suave para el botón */
+        .pulse-btn {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(214, 48, 128, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(214, 48, 128, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(214, 48, 128, 0); }
+        }
+
+        /* --- EFECTOS PREMIUM --- */
+        
+        /* 1. Reveal al hacer Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Retrasos para apariciones en cascada */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* 2. Levitación (Micro-interacciones) */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { 
+            animation: float 3s ease-in-out infinite; 
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-300 font-sans antialiased overflow-x-hidden pt-10">
+
+    <div id="urgency-bar" class="fixed top-0 left-0 w-full bg-fucsia-600 text-white text-center py-2 sm:py-3 z-50 shadow-[0_4px_15px_rgba(214,48,128,0.5)] flex justify-center items-center gap-3">
+        <i class="fa-solid fa-stopwatch text-xl animate-pulse"></i>
+        <p class="font-bold text-sm sm:text-base uppercase tracking-wider">
+            ¡Oferta Especial! Tu descuento expira en: <span id="countdown" class="font-mono text-xl sm:text-2xl font-black ml-2 bg-dark-900 px-3 py-1 rounded-md text-fucsia-400">10:00</span>
+        </p>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center bg-dark-900 bg-pattern overflow-hidden pt-24 pb-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <p class="reveal text-fucsia-400 font-bold tracking-widest uppercase text-sm mb-6 inline-block glass-panel px-6 py-2 rounded-full shadow-lg mx-auto">
+                Para mujeres listas para un cambio real
+            </p>
+            
+            <!-- Título Principal -->
+            <h1 class="reveal delay-100 font-heading text-6xl sm:text-7xl lg:text-8xl font-black text-white leading-tight mb-4 tracking-tight">
+                FUSIÓN <span class="text-transparent bg-clip-text bg-gradient-to-br from-white to-fucsia-500">360</span>
+            </h1>
+            
+            <!-- Subtítulo -->
+            <h2 class="reveal delay-200 text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white mb-6 uppercase tracking-wide">
+                Un sistema integral para <span class="text-fucsia-500">esculpir tu cuerpo</span>
+            </h2>
+            
+            <!-- Descripción -->
+            <p class="reveal delay-300 text-lg sm:text-xl lg:text-2xl text-gray-400 mb-10 max-w-3xl leading-relaxed mx-auto">
+                Transforma tu salud, recupera tu energía y alcanza tu mejor versión sin dietas restrictivas extremas. Nutrición, entrenamiento y mentalidad en un solo lugar.
+            </p>
+            
+            <!-- Beneficios Rápidos -->
+            <ul class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 mb-12">
+                <li class="flex items-center gap-2 text-gray-300 text-lg">
+                    <i class="fa-regular fa-calendar-check text-fucsia-500 text-2xl"></i> Plan 90 Días
+                </li>
+                <li class="flex items-center gap-2 text-gray-300 text-lg">
+                    <i class="fa-solid fa-house text-fucsia-500 text-2xl"></i> Desde Casa
+                </li>
+                <li class="flex items-center gap-2 text-gray-300 text-lg">
+                    <i class="fa-solid fa-mobile-screen-button text-fucsia-500 text-2xl"></i> App Incluida
+                </li>
+            </ul>
+
+            <!-- Botón CTA -->
+            <div class="flex justify-center w-full">
+                <a href="https://pay.hotmart.com/Y104908513R?checkoutMode=10" target="_blank" class="bg-fucsia-500 hover:bg-fucsia-400 text-white font-bold py-5 px-10 rounded-full text-xl transition-all duration-300 transform hover:scale-105 pulse-btn shadow-[0_0_30px_rgba(214,48,128,0.4)] w-full sm:w-auto text-center uppercase tracking-wider inline-flex items-center justify-center gap-3">
+                    ¡Quiero mi transformación! <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <!-- Indicadores de confianza -->
+            <div class="mt-12 flex flex-wrap justify-center items-center gap-6 opacity-80">
+                 <div class="flex items-center gap-2 text-sm text-gray-400"><i class="fa-solid fa-star text-yellow-400"></i> +5,000 Alumnas</div>
+                 <div class="flex items-center gap-2 text-sm text-gray-400"><i class="fa-solid fa-shield-halved text-fucsia-400"></i> Pago Seguro</div>
+                 <div class="flex items-center gap-2 text-sm text-gray-400"><i class="fa-solid fa-rotate-left text-fucsia-400"></i> 7 Días de Garantía</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGITACIÓN / IDENTIFICACIÓN -->
+    <section class="py-20 bg-dark-800 bg-pattern">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+                    ¿Te sientes identificada con alguna de estas situaciones?
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="reveal glass-panel p-8 rounded-2xl flex items-start gap-4 hover:shadow-[0_0_25px_rgba(214,48,128,0.15)] hover:border-fucsia-500/40 transition-all duration-500 hover:-translate-y-1">
+                    <div class="text-fucsia-500 text-2xl mt-1 animate-float"><i class="fa-solid fa-circle-xmark"></i></div>
+                    <p class="text-lg">Sientes que has probado todas las dietas de moda y <strong>ninguna te funciona</strong> a largo plazo por el efecto rebote.</p>
+                </div>
+                <div class="reveal delay-100 glass-panel p-8 rounded-2xl flex items-start gap-4 hover:shadow-[0_0_25px_rgba(214,48,128,0.15)] hover:border-fucsia-500/40 transition-all duration-500 hover:-translate-y-1">
+                    <div class="text-fucsia-500 text-2xl mt-1 animate-float" style="animation-delay: 0.5s;"><i class="fa-solid fa-circle-xmark"></i></div>
+                    <p class="text-lg">Te falta <strong>energía y vitalidad</strong> para afrontar tu día a día, sintiéndote agotada constantemente.</p>
+                </div>
+                <div class="reveal delay-200 glass-panel p-8 rounded-2xl flex items-start gap-4 hover:shadow-[0_0_25px_rgba(214,48,128,0.15)] hover:border-fucsia-500/40 transition-all duration-500 hover:-translate-y-1">
+                    <div class="text-fucsia-500 text-2xl mt-1 animate-float" style="animation-delay: 1s;"><i class="fa-solid fa-circle-xmark"></i></div>
+                    <p class="text-lg">La ansiedad por la comida controla tus decisiones y te hace sentir <strong>culpable después de comer</strong>.</p>
+                </div>
+                <div class="reveal delay-300 glass-panel p-8 rounded-2xl flex items-start gap-4 hover:shadow-[0_0_25px_rgba(214,48,128,0.15)] hover:border-fucsia-500/40 transition-all duration-500 hover:-translate-y-1">
+                    <div class="text-fucsia-500 text-2xl mt-1 animate-float" style="animation-delay: 1.5s;"><i class="fa-solid fa-circle-xmark"></i></div>
+                    <p class="text-lg">No te sientes cómoda con tu cuerpo, pero los gimnasios tradicionales te <strong>intimidan o te aburren</strong>.</p>
+                </div>
+            </div>
+            
+            <div class="reveal max-w-3xl mx-auto text-center mt-16">
+                <p class="text-xl font-medium text-white">
+                    No es tu culpa. La industria del fitness te ha vendido soluciones rápidas que no se adaptan a la biología ni al estilo de vida de una mujer real. <span class="text-fucsia-400 font-bold">Ha llegado el momento de un cambio definitivo.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BONOS -->
+    <section class="py-24 bg-dark-900 bg-pattern relative border-t border-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-fucsia-500 font-bold tracking-wider uppercase text-sm mb-2 block">Regalos Exclusivos</span>
+                <h2 class="text-4xl md:text-5xl font-heading font-black text-white mb-4">
+                    Al unirte hoy, te llevas estos <span class="text-transparent bg-clip-text bg-gradient-to-r from-fucsia-400 to-fucsia-600">Bonos Gratis</span>
+                </h2>
+                <p class="text-xl max-w-2xl mx-auto text-gray-400">Herramientas prácticas para acelerar tus resultados y hacer el proceso mucho más fácil y delicioso.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+                
+                <!-- Bono 1 -->
+                <div class="glass-panel rounded-3xl overflow-hidden flex flex-col sm:flex-row group hover:border-fucsia-500/50 transition-colors duration-300">
+                    <div class="w-full sm:w-2/5 h-64 sm:h-auto overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Detox en 7 días" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-fucsia-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Bono #1</div>
+                    </div>
+                    <div class="w-full sm:w-3/5 p-6 flex flex-col justify-center">
+                        <h3 class="text-2xl font-heading font-bold text-white mb-2 group-hover:text-fucsia-400 transition-colors">Desintoxica tu cuerpo en 7 días</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Un plan rápido y efectivo para resetear tu metabolismo, eliminar toxinas acumuladas y prepararte para absorber al máximo los nutrientes. Ideal para arrancar con energía.</p>
+                        <div class="mt-auto inline-flex items-center text-fucsia-500 text-sm font-semibold">
+                            <i class="fa-solid fa-gift mr-2"></i> Gratis con tu ingreso
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bono 2 -->
+                <div class="glass-panel rounded-3xl overflow-hidden flex flex-col sm:flex-row group hover:border-fucsia-500/50 transition-colors duration-300">
+                    <div class="w-full sm:w-2/5 h-64 sm:h-auto overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Menú en Loncheras" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-fucsia-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Bono #2</div>
+                    </div>
+                    <div class="w-full sm:w-3/5 p-6 flex flex-col justify-center">
+                        <h3 class="text-2xl font-heading font-bold text-white mb-2 group-hover:text-fucsia-400 transition-colors">Menú saludable en loncheras</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Ideas prácticas y deliciosas para llevar al trabajo o la universidad. Nunca más dependerás de comida rápida; organiza tus almuerzos fácilmente y mantén tu progreso.</p>
+                        <div class="mt-auto inline-flex items-center text-fucsia-500 text-sm font-semibold">
+                            <i class="fa-solid fa-gift mr-2"></i> Gratis con tu ingreso
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bono 3 -->
+                <div class="glass-panel rounded-3xl overflow-hidden flex flex-col sm:flex-row group hover:border-fucsia-500/50 transition-colors duration-300">
+                    <div class="w-full sm:w-2/5 h-64 sm:h-auto overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smoothies frescos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-fucsia-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Bono #3</div>
+                    </div>
+                    <div class="w-full sm:w-3/5 p-6 flex flex-col justify-center">
+                        <h3 class="text-2xl font-heading font-bold text-white mb-2 group-hover:text-fucsia-400 transition-colors">Smoothies siempre frescos</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Recetario exclusivo con combinaciones de batidos llenos de vitaminas, antioxidantes y proteína. Perfectos para desayunos rápidos o snacks para recuperar energía post-entreno.</p>
+                        <div class="mt-auto inline-flex items-center text-fucsia-500 text-sm font-semibold">
+                            <i class="fa-solid fa-gift mr-2"></i> Gratis con tu ingreso
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bono 4: Fusión 360 App (Premium) -->
+                <div class="rounded-3xl overflow-hidden flex flex-col sm:flex-row group transition-all duration-300 transform hover:-translate-y-1 shadow-[0_0_30px_rgba(232,67,147,0.3)] border-2 border-fucsia-400 bg-gradient-to-br from-dark-800 to-fucsia-900/40 relative">
+
+                    <div class="w-full sm:w-2/5 h-64 sm:h-auto overflow-hidden relative">
+                        <!-- Usando una imagen que simule una app premium de fitness -->
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fusion 360 App" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                        <div class="absolute top-4 left-4 bg-fucsia-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide z-10">Bono Exclusivo #4</div>
+                    </div>
+                    
+                    <div class="w-full sm:w-3/5 p-6 flex flex-col justify-center relative z-10">
+                        <!-- Etiqueta Flotante Premium -->
+                        <div class="flex justify-start mb-4">
+                            <div class="inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-dark-900 text-sm font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-[0_0_15px_rgba(234,179,8,0.5)]">
+                                <i class="fa-solid fa-star mr-2"></i> ¡BONO ESTRELLA!
+                            </div>
+                        </div>
+
+                        <h3 class="text-3xl font-heading font-black text-white mb-2 tracking-tight">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-fucsia-300 to-fucsia-500">Fusion 360</span> APP
+                        </h3>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed font-medium">Lleva tu programa a todas partes. Accede a rutinas guiadas en video, tracking de progreso, alarmas de hidratación y soporte en tiempo real. Todo tu plan de transformación, literalmente en tu bolsillo.</p>
+                        <div class="mt-auto flex flex-col gap-2">
+                            <div class="inline-flex items-center text-yellow-500 text-sm font-bold">
+                                <i class="fa-solid fa-crown mr-2"></i> Acceso Vitalicio Incluido Hoy
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOS PILARES -->
+    <section class="py-24 bg-dark-900 relative">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-heading font-black text-white mb-4 uppercase">
+                    El Método <span class="text-fucsia-500">Fusión 360</span>
+                </h2>
+                <p class="text-xl max-w-2xl mx-auto text-gray-400">Cuatro pilares fundamentales diseñados para trabajar en sinergia y esculpir tu cuerpo de adentro hacia afuera.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Pilar 1: Calendario -->
+                <div class="reveal glass-panel p-8 rounded-2xl text-center border-t-4 border-t-fucsia-500 hover:-translate-y-3 hover:shadow-[0_15px_30px_rgba(214,48,128,0.25)] transition-all duration-500 group">
+                    <div class="w-20 h-20 mx-auto bg-dark-800 rounded-full flex items-center justify-center mb-6 border-2 border-fucsia-500 text-fucsia-500 text-3xl group-hover:bg-fucsia-500 group-hover:text-white transition-colors duration-300 animate-float">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-white mb-3">Planificación</h3>
+                    <p class="text-gray-400 text-sm">Rutinas y menús organizados paso a paso para que no tengas que pensar, solo ejecutar y ver resultados semana a semana.</p>
+                </div>
+
+                <!-- Pilar 2: Nutrición -->
+                <div class="reveal delay-100 glass-panel p-8 rounded-2xl text-center border-t-4 border-t-fucsia-500 hover:-translate-y-3 hover:shadow-[0_15px_30px_rgba(214,48,128,0.25)] transition-all duration-500 group">
+                    <div class="w-20 h-20 mx-auto bg-dark-800 rounded-full flex items-center justify-center mb-6 border-2 border-fucsia-500 text-fucsia-500 text-3xl group-hover:bg-fucsia-500 group-hover:text-white transition-colors duration-300 animate-float" style="animation-delay: 0.5s;">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-white mb-3">Nutrición Inteligente</h3>
+                    <p class="text-gray-400 text-sm">Aprende a nutrir tu cuerpo sin pasar hambre. Recetas deliciosas que aceleran tu metabolismo y equilibran tus hormonas.</p>
+                </div>
+
+                <!-- Pilar 3: Entrenamiento -->
+                <div class="reveal delay-200 glass-panel p-8 rounded-2xl text-center border-t-4 border-t-fucsia-500 hover:-translate-y-3 hover:shadow-[0_15px_30px_rgba(214,48,128,0.25)] transition-all duration-500 group">
+                    <div class="w-20 h-20 mx-auto bg-dark-800 rounded-full flex items-center justify-center mb-6 border-2 border-fucsia-500 text-fucsia-500 text-3xl group-hover:bg-fucsia-500 group-hover:text-white transition-colors duration-300 animate-float" style="animation-delay: 1s;">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-white mb-3">Movimiento</h3>
+                    <p class="text-gray-400 text-sm">Entrenamientos estratégicos diseñados para esculpir y tonificar tu cuerpo, adaptables a tu nivel y realizables desde casa.</p>
+                </div>
+
+                <!-- Pilar 4: Corazón/Bienestar -->
+                <div class="reveal delay-300 glass-panel p-8 rounded-2xl text-center border-t-4 border-t-fucsia-500 hover:-translate-y-3 hover:shadow-[0_15px_30px_rgba(214,48,128,0.25)] transition-all duration-500 group">
+                    <div class="w-20 h-20 mx-auto bg-dark-800 rounded-full flex items-center justify-center mb-6 border-2 border-fucsia-500 text-fucsia-500 text-3xl group-hover:bg-fucsia-500 group-hover:text-white transition-colors duration-300 animate-float" style="animation-delay: 1.5s;">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-white mb-3">Amor Propio</h3>
+                    <p class="text-gray-400 text-sm">Trabajaremos tu mentalidad para vencer el autosabotaje, mejorar tu relación con la comida y construir hábitos sostenibles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS SUTILES -->
+    <section class="py-16 bg-dark-800 border-t border-b border-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl md:text-3xl font-heading font-bold text-center text-white/90 mb-10">
+                Mujeres que ya transformaron su vida
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- Testimonio 1 -->
+                <div class="p-6 rounded-2xl bg-dark-900/40 border border-gray-800/60">
+                    <div class="flex text-fucsia-500 text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-400 text-sm italic mb-4">"Pensé que a mi edad ya no podía recuperar mi energía. Fusión 360 me demostró lo contrario. Me siento más ágil, sin ansiedad y no siento que esté a dieta."</p>
+                    <p class="text-gray-500 font-semibold text-xs tracking-wider uppercase">- Mariana L.</p>
+                </div>
+                <!-- Testimonio 2 -->
+                <div class="p-6 rounded-2xl bg-dark-900/40 border border-gray-800/60">
+                    <div class="flex text-fucsia-500 text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-400 text-sm italic mb-4">"La app es una maravilla. Me organiza el día entero y las recetas de los bonos me salvaron la vida, son súper fáciles de hacer incluso con el trabajo y los niños."</p>
+                    <p class="text-gray-500 font-semibold text-xs tracking-wider uppercase">- Carolina G.</p>
+                </div>
+                <!-- Testimonio 3 -->
+                <div class="p-6 rounded-2xl bg-dark-900/40 border border-gray-800/60">
+                    <div class="flex text-fucsia-500 text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-400 text-sm italic mb-4">"Nunca había durado más de una semana en un programa. Llevo 2 meses, me siento fuerte y mi ropa me queda suelta. Me cambió la mentalidad por completo."</p>
+                    <p class="text-gray-500 font-semibold text-xs tracking-wider uppercase">- Valeria S.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE OFERTA / PRECIO -->
+    <section id="oferta" class="py-24 bg-dark-900 bg-pattern">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto glass-panel p-8 md:p-12 rounded-3xl border-2 border-fucsia-600 relative overflow-hidden">
+                
+                <!-- Etiqueta de Oferta Flotante -->
+                <div class="flex justify-center mb-8 relative z-10">
+                    <div class="inline-flex items-center bg-fucsia-500 text-white text-sm md:text-base font-black px-6 py-2 rounded-full uppercase tracking-widest shadow-[0_0_20px_rgba(214,48,128,0.7)] animate-pulse border border-fucsia-400">
+                        <i class="fa-solid fa-tags mr-2"></i> ¡OFERTA ESPECIAL HOY!
+                    </div>
+                </div>
+
+                <div class="text-center mb-8 relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-heading font-black text-white mb-4">Todo lo que necesitas para tu transformación</h2>
+                    <p class="text-gray-400">Acceso Inmediato al Sistema Fusión 360 + App Móvil</p>
+                </div>
+
+                <div class="space-y-4 mb-8 text-lg relative z-10">
+                    <div class="flex justify-between items-center border-b border-gray-700 pb-3">
+                        <span class="text-gray-300">Programa Completo Fusión 360</span>
+                        <span class="text-gray-500 line-through text-sm">$47.00</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-700 pb-3">
+                        <span class="text-gray-300">Bono: Acceso VIP a la App Móvil</span>
+                        <span class="text-gray-500 line-through text-sm">$27.00</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-700 pb-3">
+                        <span class="text-gray-300">Bono: Comunidad Privada de Apoyo</span>
+                        <span class="text-gray-500 line-through text-sm">$23.00</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-white font-bold">Valor Total Real</span>
+                        <span class="text-fucsia-500 font-bold">$97.00</span>
+                    </div>
+                </div>
+
+                <div class="text-center mb-8 relative z-10">
+                    <p class="text-gray-400 mb-2">Llévatelo hoy por un único pago de:</p>
+                    <div class="text-6xl font-heading font-black text-white mb-2 flex items-start justify-center">
+                        <span class="text-3xl mt-2 mr-1">$</span>15<span class="text-2xl text-gray-400 mt-6 ml-2">USD</span>
+                    </div>
+                    <p class="text-fucsia-400 text-base font-bold bg-fucsia-900/30 inline-block px-4 py-1 rounded-full border border-fucsia-500/30">¡Ahorras $82! Oferta por tiempo limitado.</p>
+                </div>
+
+                <a href="https://pay.hotmart.com/Y104908513R?checkoutMode=10" target="_blank" class="block w-full bg-fucsia-500 hover:bg-fucsia-400 text-white font-bold py-4 px-8 rounded-xl text-xl text-center transition-all duration-300 transform hover:scale-105 shadow-[0_0_30px_rgba(214,48,128,0.5)] pulse-btn uppercase tracking-wide relative z-10">
+                    Sí, ¡Quiero Acceso Inmediato!
+                </a>
+                
+                <div class="flex justify-center items-center gap-4 mt-6 text-gray-400 text-sm relative z-10">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Pago 100% Seguro. Acceso instantáneo por correo.</span>
+                </div>
+            </div>
+            
+            <!-- Garantía -->
+            <div class="max-w-2xl mx-auto mt-12 text-center flex flex-col md:flex-row items-center justify-center gap-6">
+                <img src="https://placehold.co/100x100/1f1f1f/d63080?text=7+Dias\nGarantia" alt="Garantía de 7 Días" class="rounded-full w-24 h-24 border-2 border-gray-700">
+                <div class="text-left">
+                    <h4 class="text-white font-bold text-lg mb-1">Garantía de Satisfacción 100%</h4>
+                    <p class="text-gray-400 text-sm">Prueba Fusión 360 durante 7 días. Si sientes que no es para ti, te devolvemos todo tu dinero, sin preguntas ni complicaciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES (FAQ) -->
+    <section class="py-20 bg-dark-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Preguntas Frecuentes</h2>
+                <p class="text-gray-400">Todo lo que necesitas saber antes de dar el paso hacia tu transformación.</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="border border-gray-700 rounded-xl overflow-hidden bg-dark-900 transition-all duration-300">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white hover:text-fucsia-400 transition-colors focus:outline-none">
+                        <span class="font-semibold pr-4">¿Necesito tener experiencia previa entrenando?</span>
+                        <i class="fa-solid fa-chevron-down text-fucsia-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-gray-800 pt-4">
+                        ¡Para nada! Fusión 360 está diseñado para ser 100% adaptable. Los videos de ejercicios incluyen modificaciones para principiantes, intermedios y avanzados. Tú marcas tu propio ritmo.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-gray-700 rounded-xl overflow-hidden bg-dark-900 transition-all duration-300">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white hover:text-fucsia-400 transition-colors focus:outline-none">
+                        <span class="font-semibold pr-4">¿Tengo que hacer una dieta estricta o pasar hambre?</span>
+                        <i class="fa-solid fa-chevron-down text-fucsia-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-gray-800 pt-4">
+                        Todo lo contrario. No creemos en las dietas extremas porque generan efecto rebote. Aprenderás de "Nutrición Inteligente": comerás porciones saciantes, disfrutarás de alimentos deliciosos y nutrirás tu cuerpo para que funcione como una máquina quema-grasa natural.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-gray-700 rounded-xl overflow-hidden bg-dark-900 transition-all duration-300">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white hover:text-fucsia-400 transition-colors focus:outline-none">
+                        <span class="font-semibold pr-4">¿Necesito equipamiento especial o ir al gimnasio?</span>
+                        <i class="fa-solid fa-chevron-down text-fucsia-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-gray-800 pt-4">
+                        No es necesario. Las rutinas base están diseñadas para hacerse desde la comodidad de tu casa usando el peso de tu propio cuerpo. Más adelante, si lo deseas, puedes incorporar unas mancuernas ligeras o bandas elásticas.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border border-gray-700 rounded-xl overflow-hidden bg-dark-900 transition-all duration-300">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white hover:text-fucsia-400 transition-colors focus:outline-none">
+                        <span class="font-semibold pr-4">¿Cómo y cuándo recibo el acceso al programa y la App?</span>
+                        <i class="fa-solid fa-chevron-down text-fucsia-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-gray-800 pt-4">
+                        ¡Inmediatamente! Una vez que confirmes tu pago seguro, recibirás un correo electrónico automático con tus credenciales de acceso a la plataforma y las instrucciones para descargar y activar tu cuenta en la App exclusiva.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="border border-gray-700 rounded-xl overflow-hidden bg-dark-900 transition-all duration-300">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white hover:text-fucsia-400 transition-colors focus:outline-none">
+                        <span class="font-semibold pr-4">¿Es seguro realizar el pago con mi tarjeta?</span>
+                        <i class="fa-solid fa-chevron-down text-fucsia-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-gray-800 pt-4">
+                        100% seguro. Usamos una pasarela de pago internacional con encriptación de nivel bancario. Tus datos están totalmente protegidos. Además, recuerda que cuentas con 7 días de garantía de devolución.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="https://pay.hotmart.com/Y104908513R?checkoutMode=10" target="_blank" class="inline-flex items-center text-fucsia-400 hover:text-fucsia-300 font-bold transition-colors text-lg">
+                    Estoy lista, quiero comenzar ahora <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark-900 border-t border-gray-800 py-8 text-center text-gray-500 text-sm">
+        <div class="container mx-auto px-4">
+            <p class="mb-4">© 2026 Fusión 360. Todos los derechos reservados.</p>
+            <p class="text-xs max-w-2xl mx-auto opacity-70">
+                *Los resultados pueden variar de persona a persona. Este producto no sustituye el consejo médico profesional. Consulte a su médico antes de comenzar cualquier programa de ejercicios o dieta.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tiempo inicial en segundos (10 minutos)
+            let timeInSeconds = 10 * 60;
+            const display = document.getElementById('countdown');
+
+            function updateTimer() {
+                const minutes = Math.floor(timeInSeconds / 60);
+                let seconds = timeInSeconds % 60;
+
+                // Añadir un cero a la izquierda si los segundos son menores a 10
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+
+                display.textContent = `${minutes}:${seconds}`;
+
+                if (timeInSeconds > 0) {
+                    timeInSeconds--;
+                } else {
+                    // Cuando llega a cero
+                    display.textContent = "00:00";
+                    display.classList.add('text-red-500');
+                    display.classList.remove('text-fucsia-400');
+                }
+            }
+
+            // Actualizar cada segundo
+            setInterval(updateTimer, 1000);
+            
+            // Lógica para las Preguntas Frecuentes (Acordeón)
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector('i');
+                    
+                    // Cerrar todas las demás
+                    faqBtns.forEach(otherBtn => {
+                        if (otherBtn !== btn) {
+                            otherBtn.nextElementSibling.classList.add('hidden');
+                            otherBtn.querySelector('i').classList.remove('rotate-180');
+                        }
+                    });
+                    
+                    // Alternar la actual
+                    content.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+            
+            // --- Lógica del Scroll Reveal (Aparición Premium) ---
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15, // Se activa cuando el 15% del elemento entra en pantalla
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // observer.unobserve(entry.target); // Descomentar para que ocurra solo 1 vez (ahora ocurre siempre que subes y bajas)
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
